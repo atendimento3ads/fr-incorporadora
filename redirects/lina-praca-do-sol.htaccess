@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^(.*)$ /lina/$1 [R=301,L]
