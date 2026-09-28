@@ -12,7 +12,15 @@ Após confirmação do webhook, cada formulário abre sua página de obrigado: `
 
 As páginas legais compartilhadas são `/politica-de-privacidade/`, `/termos-de-uso/` e `/politica-de-cookies/`. Elas descrevem o funcionamento atual das LPs e apontam para a política oficial da FR. Antes de publicar, a FR deve revisar o conteúdo jurídico e confirmar o fluxo de dados após o webhook da Make.
 
-Os cabeçalhos de segurança têm uma única fonte em `security-headers.htaccess`. O deploy copia a política para os nove diretórios com HTML. Os estilos e scripts próprios são arquivos externos, permitindo uma CSP sem `unsafe-inline`. Se forem adicionados analytics, pixels, fontes ou outros serviços, revise a CSP, os avisos de privacidade e cookies e os controles de escolha antes da ativação.
+Os cabeçalhos de segurança têm uma única fonte em `security-headers.htaccess`. O deploy copia a política para os nove diretórios com HTML. Os estilos e scripts próprios são arquivos externos, permitindo uma CSP sem `unsafe-inline`.
+
+## GTM e conversão
+
+O contêiner `GTM-KP6BMDSS` é carregado nas nove páginas apenas após o aceite conjunto de medição e publicidade. A escolha fica no armazenamento local por até 180 dias e pode ser alterada pelo link no rodapé. Sem aceite, o GTM não é baixado. O snippet `noscript` foi omitido porque não há mecanismo de consentimento sem JavaScript.
+
+Após resposta HTTP positiva do webhook da Make, o formulário grava na sessão um marcador sem dados pessoais e abre a página de obrigado. Essa página consome o marcador uma só vez e emite `dataLayer.push({event: 'formSubmit', empreendimento: 'bueno' | 'dgn' | 'lina', origem: 'lp_fr'})`. Visita direta, recarga ou URL compartilhada não emite o evento. O contêiner publicado em 28/09/2026 já tem tags de conversão acionadas por `formSubmit`; a medição real ainda depende do estado dessas tags, do consentimento, da CSP e do recebimento no destino. Configure conversões pelo evento, não por mera visualização da URL de obrigado.
+
+O contêiner também tem tags de HTML personalizado (incluindo Clarity). A CSP restritiva pode bloquear essas tags; migre-as para modelos compatíveis com CSP, sem liberar `unsafe-inline`. Revise as origens da CSP quando o contêiner for alterado.
 
 ## Publicação no cPanel
 

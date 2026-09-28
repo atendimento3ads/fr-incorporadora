@@ -30,6 +30,17 @@ document.querySelectorAll('form.form-card').forEach((form) => {
       });
       if (!response.ok) throw new Error('O webhook não confirmou o recebimento.');
 
+      // Marcador efêmero sem dados pessoais: só a página de obrigado correspondente
+      // poderá emitir o evento de conversão, uma única vez.
+      try {
+        const path = new URL(form.dataset.obrigado, location.href).pathname;
+        sessionStorage.setItem('fr_lead_success_v1', JSON.stringify({
+          slug: form.dataset.trackingSlug,
+          path,
+          at: Date.now(),
+        }));
+      } catch { /* A página de obrigado ainda pode ser exibida. */ }
+
       form.reset();
       status.dataset.state = 'success';
       status.textContent = 'Dados enviados com sucesso. Nossa equipe entrará em contato em breve.';

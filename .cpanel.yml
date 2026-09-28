@@ -1,6 +1,8 @@
 ---
 deployment:
   tasks:
+    - /bin/cp gtm-consent.css /home2/hg3ads37/empreendimento.frincorporadora.com.br/gtm-consent.css
+    - /bin/cp gtm-consent.js /home2/hg3ads37/empreendimento.frincorporadora.com.br/gtm-consent.js
     - /bin/cp legal.css /home2/hg3ads37/empreendimento.frincorporadora.com.br/legal.css
     - /bin/cp legal-links.css /home2/hg3ads37/empreendimento.frincorporadora.com.br/legal-links.css
     - /bin/cp lead-form.css /home2/hg3ads37/empreendimento.frincorporadora.com.br/lead-form.css
