@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FR DGN — Distrito Goiás Norte | Apartamento de 2 e 3 quartos com 1.000 m² de lazer</title>
+<meta name="description" content="Conheça o FR DGN, pronto para morar, com opções de 2 e 3 quartos e localização ao lado do Goiás Center Modas, próxima à Região da 44.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFEFF2;
+    --surface:#FFFFFF;
+    --coral:#F55E45;
+    --coral-deep:#D9482F;
+    --lime:#DEE575;
+    --ink:#211E1B;
+    --deep:#240F10;
+    --t2:#5F5352;
+    --t3:#9C8B8A;
+    --border:#F3DBDE;
+    --border-dark:rgba(255,239,242,.16);
+    --r:16px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Montserrat',sans-serif;
+    font-weight:400;color:var(--ink);background:var(--bg);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 48px}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+
+  /* ---------- Type ---------- */
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+  h2{font-size:clamp(30px,4.2vw,50px)}
+  h2 em{font-style:normal;color:var(--coral)}
+  .kicker{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--coral);margin-bottom:20px;
+  }
+  .lead{font-size:16.5px;color:var(--t2);max-width:640px;line-height:1.75}
+  strong{font-weight:700}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:12px;
+    background:var(--coral);color:#fff;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    padding:19px 36px;border:none;border-radius:100px;cursor:pointer;
+    transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease);
+  }
+  .btn:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+  .btn .arr{font-weight:400;transition:transform .3s var(--ease)}
+  .btn:hover .arr{transform:translateX(4px)}
+  .btn--lime{background:var(--lime);color:var(--ink)}
+  .btn--lime:hover{background:#fff;color:var(--ink)}
+
+  section{padding:104px 0;position:relative}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(255,239,242,.92);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+  .brand img{height:44px;width:auto}
+  header .btn{padding:12px 24px;font-size:11px}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:0;color:#fff;position:relative;isolation:isolate;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:-1;
+    background:url("images/hero-aerea.jpg") center 45%/cover no-repeat;
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(180deg,rgba(36,15,16,.5) 0%,rgba(36,15,16,.22) 42%,rgba(36,15,16,.86) 100%),
+      linear-gradient(90deg,rgba(36,15,16,.62) 0%,rgba(36,15,16,.1) 70%);
+  }
+  .hero .wrap{padding-top:190px;padding-bottom:96px}
+  .hero .kicker{color:var(--lime)}
+  .hero h1{font-size:clamp(34px,5vw,62px);max-width:900px;color:#fff}
+  .hero h1 em{font-style:normal;color:var(--lime)}
+  .hero p{
+    margin-top:28px;font-size:16.5px;line-height:1.75;
+    color:rgba(255,255,255,.92);max-width:620px;
+  }
+  .hero .btn{margin-top:40px}
+
+  /* ---------- Régua (stats) ---------- */
+  .stats{background:var(--deep);color:#fff}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{
+    padding:44px 32px;border-left:1px solid var(--border-dark);
+    display:flex;flex-direction:column;
+  }
+  .stat:first-child{border-left:none}
+  .stat svg{
+    width:28px;height:28px;stroke:var(--lime);fill:none;
+    stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+    margin-bottom:16px;
+  }
+  .stat .s-label{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:500;line-height:1.4;color:#fff}
+
+  /* ---------- Morar / Investir ---------- */
+  .mi-head{max-width:760px;margin-bottom:56px}
+  .mi-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .mi-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+  }
+  .mi-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -32px rgba(36,15,16,.28)}
+  .mi-card img{width:100%;height:280px;object-fit:cover}
+  .mi-body{padding:36px 36px 40px}
+  .mi-body .tag{
+    display:inline-block;font-family:'Space Grotesk',sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    background:var(--bg);color:var(--coral);border-radius:100px;
+    padding:8px 18px;margin-bottom:18px;
+  }
+  .mi-body h3{font-size:26px;margin-bottom:12px}
+  .mi-body p{font-size:15px;color:var(--t2);line-height:1.75}
+  .mi-cta{margin-top:48px;display:flex;justify-content:center}
+
+  /* ---------- Plantas ---------- */
+  .plantas{background:var(--deep);color:#fff}
+  .plantas .kicker{color:var(--lime)}
+  .plantas h2{color:#fff}
+  .plantas .lead{color:rgba(255,239,242,.8)}
+  .pl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+  .pl-card{
+    background:var(--surface);border-radius:var(--r);overflow:hidden;
+    cursor:zoom-in;display:flex;flex-direction:column;
+    transition:transform .35s var(--ease);
+  }
+  .pl-card:hover{transform:translateY(-6px)}
+  .pl-card .pl-img{
+    background:#fff;padding:12px 12px 6px;
+  }
+  .pl-card img{width:100%;aspect-ratio:1/1;object-fit:contain}
+  .pl-info{
+    border-top:1px solid var(--border);
+    padding:18px 20px 22px;color:var(--ink);
+    flex:1;
+  }
+  .pl-info .m2{
+    font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;
+  }
+  .pl-info .m2 span{color:var(--coral)}
+  .pl-info .cfg{
+    font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:600;
+    color:var(--coral-deep);margin-top:3px;
+  }
+  .pl-info p{font-size:12.5px;color:var(--t2);line-height:1.6;margin-top:9px}
+  .dif-band{
+    margin-top:26px;border-radius:var(--r);overflow:hidden;
+    display:grid;grid-template-columns:1.2fr .8fr;align-items:stretch;
+    background:var(--coral);color:#fff;
+  }
+  .dif-band .dif-txt{padding:44px 48px;display:flex;flex-direction:column;justify-content:center}
+  .dif-band .dif-txt .kicker{color:#fff;opacity:.85;margin-bottom:10px}
+  .dif-band .dif-txt p{
+    font-family:'Space Grotesk',sans-serif;font-size:clamp(20px,2.4vw,28px);
+    font-weight:600;line-height:1.3;
+  }
+  .dif-band img{width:100%;height:100%;object-fit:cover;min-height:200px}
+  .plantas .btn-row{display:flex;justify-content:center;margin-top:52px}
+
+  /* ---------- Lazer ---------- */
+  .lazer-head{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:end;margin-bottom:52px}
+  .lazer-head .lead{max-width:none}
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:56px}
+  .cat{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+    padding:30px 26px;
+  }
+  .cat svg{
+    width:28px;height:28px;stroke:var(--coral);fill:none;
+    stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+    margin-bottom:16px;
+  }
+  .cat h3{font-size:16.5px;margin-bottom:8px;line-height:1.3}
+  .cat p{font-size:13.5px;color:var(--t2);line-height:1.6}
+  .ed-gal{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .ed-gal figure{
+    position:relative;overflow:hidden;border-radius:var(--r);cursor:zoom-in;
+  }
+  .ed-gal img{width:100%;height:420px;object-fit:cover;transition:transform .8s var(--ease)}
+  .ed-gal figure:hover img{transform:scale(1.05)}
+  .ed-gal figcaption{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:44px 22px 16px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#fff;
+    background:linear-gradient(180deg,transparent,rgba(36,15,16,.78));
+  }
+  .lazer .btn-row{display:flex;justify-content:center;margin-top:52px}
+
+  /* ---------- Localização ---------- */
+  .loc{background:var(--surface)}
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:56px}
+  .loc-map{
+    background:var(--bg);border:1px solid var(--border);border-radius:var(--r);
+    padding:18px;
+  }
+  .loc-map img{width:100%;border-radius:10px}
+  .loc-items{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .loc-item{
+    padding:22px 18px 22px 0;border-bottom:1px solid var(--border);
+  }
+  .loc-item h3{font-size:16px;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  .loc-item h3::before{
+    content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--coral);
+  }
+  .loc-item p{font-size:13.5px;color:var(--t2);line-height:1.55;padding-left:19px}
+  .loc .btn-row{display:flex;justify-content:center;margin-top:56px}
+
+  /* ---------- Contato ---------- */
+  .contato{padding-bottom:120px}
+  .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:start}
+  .contato-copy{position:sticky;top:120px}
+  .contato-copy .lead{margin-top:22px}
+  .sol-title{
+    font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;
+    margin-top:40px;margin-bottom:8px;
+  }
+  .sol-list{list-style:none;margin-top:12px}
+  .sol-list li{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 0;border-bottom:1px solid var(--border);
+    font-size:15px;font-weight:500;
+  }
+  .sol-list li svg{
+    flex:none;width:22px;height:22px;stroke:var(--coral);fill:none;
+    stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+  }
+  .form-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:20px;
+    padding:48px 44px;box-shadow:0 40px 80px -50px rgba(36,15,16,.35);
+  }
+  .form-card h3{font-size:24px;margin-bottom:10px}
+  .form-card .sub{font-size:14.5px;color:var(--t2);line-height:1.7;margin-bottom:32px}
+  .field{margin-bottom:24px}
+  .field label{
+    display:block;font-family:'Space Grotesk',sans-serif;
+    font-size:11px;font-weight:600;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--t2);margin-bottom:9px;
+  }
+  .field input[type=text],
+  .field input[type=email],
+  .field input[type=tel]{
+    width:100%;border:none;border-bottom:1.5px solid var(--border);
+    background:transparent;padding:11px 2px;font-family:'Montserrat',sans-serif;
+    font-size:15.5px;color:var(--ink);outline:none;border-radius:0;
+    transition:border-color .3s;
+  }
+  .field input:focus{border-color:var(--coral)}
+  .choices{display:flex;gap:12px;flex-wrap:wrap}
+  .chip{position:relative}
+  .chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+  .chip span{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:12px 24px;border:1.5px solid var(--border);border-radius:100px;
+    font-size:14px;font-weight:600;color:var(--t2);cursor:pointer;
+    transition:all .25s var(--ease);
+  }
+  .chip span::before{
+    content:"";width:8px;height:8px;border-radius:50%;
+    border:1.5px solid var(--t3);transition:all .25s;
+  }
+  .chip input:checked + span{
+    border-color:var(--coral);color:var(--coral);background:var(--bg);
+  }
+  .chip input:checked + span::before{background:var(--coral);border-color:var(--coral)}
+  .lgpd{display:flex;align-items:flex-start;gap:12px;margin:28px 0 32px}
+  .lgpd input{
+    appearance:none;-webkit-appearance:none;flex:none;
+    width:18px;height:18px;border:1.5px solid var(--t3);border-radius:5px;
+    cursor:pointer;position:relative;top:2px;transition:all .2s;
+  }
+  .lgpd input:checked{background:var(--coral);border-color:var(--coral)}
+  .lgpd input:checked::after{
+    content:"";position:absolute;left:4.5px;top:1px;width:5px;height:9px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);
+  }
+  .lgpd label{font-size:12.5px;color:var(--t2);cursor:pointer;line-height:1.5}
+  .form-card .btn{width:100%}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--deep);color:#fff;padding:88px 0 40px}
+  .foot{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .foot-kicker{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:.3em;
+    text-transform:uppercase;color:rgba(255,239,242,.55);margin-bottom:34px;
+  }
+  .foot-logos{display:flex;align-items:center;gap:56px;flex-wrap:wrap;justify-content:center}
+  .foot-logos img{height:56px;width:auto}
+  .foot-logos .sep{width:1px;height:48px;background:var(--border-dark)}
+  .foot-base{
+    margin-top:64px;padding-top:26px;border-top:1px solid var(--border-dark);
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    width:100%;
+  }
+  .foot-base small{
+    font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+    color:rgba(255,239,242,.45);
+  }
+  .foot-base small b{color:rgba(255,239,242,.85);font-weight:700}
+
+  /* ---------- Lightbox ---------- */
+  .lb{
+    position:fixed;inset:0;z-index:200;
+    background:rgba(24,9,10,.96);
+    display:none;align-items:center;justify-content:center;
+    flex-direction:column;padding:56px 84px;
+  }
+  .lb.open{display:flex}
+  .lb img{
+    max-width:100%;max-height:calc(100vh - 190px);
+    object-fit:contain;border-radius:12px;background:#fff;
+  }
+  .lb-cap{
+    margin-top:18px;display:flex;align-items:center;gap:16px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(255,239,242,.85);
+  }
+  .lb-cap .count{color:var(--lime)}
+  .lb-btn{
+    position:absolute;display:flex;align-items:center;justify-content:center;
+    width:52px;height:52px;border-radius:50%;
+    background:transparent;border:1px solid rgba(255,239,242,.3);
+    color:#FFEFF2;font-size:20px;line-height:1;cursor:pointer;
+    transition:all .25s var(--ease);user-select:none;
+  }
+  .lb-btn:hover{background:var(--coral);border-color:var(--coral);color:#fff}
+  .lb-prev{left:22px;top:50%;transform:translateY(-50%)}
+  .lb-next{right:22px;top:50%;transform:translateY(-50%)}
+  .lb-close{top:22px;right:22px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1024px){
+    .ed-gal img{height:340px}
+  }
+  @media (max-width:900px){
+    .wrap{padding:0 28px}
+    section{padding:76px 0}
+    header .wrap{height:72px}
+    .brand img{height:34px}
+    .hero .wrap{padding-top:150px;padding-bottom:72px}
+    .stats-grid{grid-template-columns:1fr 1fr}
+    .stat{border-left:none;border-top:1px solid var(--border-dark);padding:30px 26px}
+    .stat:nth-child(-n+2){border-top:none}
+    .stat:nth-child(2n){border-left:1px solid var(--border-dark)}
+    .mi-grid,.ed-gal,.loc-grid,.contato-grid,.lazer-head{grid-template-columns:1fr;gap:44px}
+    .mi-grid{gap:24px}
+    .pl-grid{grid-template-columns:1fr 1fr;gap:20px}
+    .ed-gal{gap:22px}
+    .cat-grid{grid-template-columns:1fr 1fr}
+    .dif-band{grid-template-columns:1fr}
+    .dif-band img{min-height:220px}
+    .loc-items{grid-template-columns:1fr}
+    .contato-copy{position:static}
+  }
+  @media (max-width:640px){
+    section{padding:60px 0}
+    .wrap{padding:0 20px}
+    .btn{width:100%;padding:17px 22px}
+    header .btn{width:auto;padding:10px 14px;font-size:9.5px;letter-spacing:.06em;white-space:nowrap}
+    .brand img{height:28px}
+    .form-card{padding:36px 22px}
+    .cat-grid{grid-template-columns:1fr}
+    .pl-grid{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:1fr}
+    .stat{border-left:none !important;border-top:1px solid var(--border-dark)}
+    .stat:first-child{border-top:none}
+    .ed-gal img{height:260px}
+    .mi-card img{height:220px}
+    .lb{padding:72px 16px 40px}
+    .lb-btn{width:44px;height:44px}
+    .lb-prev{left:10px;top:auto;bottom:18px;transform:none}
+    .lb-next{right:10px;top:auto;bottom:18px;transform:none}
+    .lb img{max-height:calc(100vh - 210px)}
+    .foot-logos{gap:32px}
+    .foot-logos img{height:44px}
+    .foot-base{flex-direction:column;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="images/logo-dgn.png" alt="DGN — Distrito Goiás Norte">
+    </div>
+    <!-- COPY: CTA -->
+    <a class="btn" href="#contato">Falar com o time comercial</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <span class="kicker">FR DGN · Distrito Goiás Norte</span>
+    <!-- COPY: título hero -->
+    <h1>Apartamento de 2 e 3 quartos próximo ao Centro de Goiânia, com <em>1.000 m² de lazer</em></h1>
+    <!-- COPY: subtítulo hero -->
+    <p>Conheça o FR DGN, pronto para morar, com opções de 2 e 3 quartos e localização ao lado do Goiás Center Modas, próxima à Região da 44.</p>
+    <!-- COPY: CTA -->
+    <a class="btn" href="#contato">Falar com o time comercial <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- ============ RÉGUA (copy) ============ -->
+<div class="stats">
+  <div class="wrap" style="padding:0">
+    <div class="stats-grid">
+      <!-- COPY: destaques -->
+      <div class="stat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+        <span class="s-label">2 e 3 quartos</span>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.3 8.7 15.3 2.7a1 1 0 0 0-1.4 0L2.7 13.9a1 1 0 0 0 0 1.4l6 6a1 1 0 0 0 1.4 0L21.3 10.1a1 1 0 0 0 0-1.4Z"/><path d="m7.5 10.5 2 2"/><path d="m10.5 7.5 2 2"/><path d="m13.5 4.5 2 2"/></svg>
+        <span class="s-label">57 m² a 78 m²</span>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+        <span class="s-label">1.000 m² de lazer</span>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
+        <span class="s-label">Pronto para morar</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MORAR / INVESTIR ============ -->
+<section>
+  <div class="wrap">
+    <div class="mi-head reveal">
+      <!-- COPY -->
+      <h2>Um endereço para quem quer <em>morar</em> e para quem pensa em <em>investir</em></h2>
+      <p class="lead" style="margin-top:22px">O DGN está no Setor Criméia Oeste, próximo à região central, à Região da 44 e a importantes acessos de Goiânia.</p>
+    </div>
+    <div class="mi-grid">
+      <!-- COPY: card morar -->
+      <div class="mi-card reveal">
+        <img src="images/praca-convivencia.jpg" alt="Praça de convivência do DGN" loading="lazy">
+        <div class="mi-body">
+          <span class="tag">Para morar</span>
+          <p>As plantas chegam a 3 quartos, há opções com suíte e o condomínio oferece espaços para crianças, atividade física e convivência.</p>
+        </div>
+      </div>
+      <!-- COPY: card investir -->
+      <div class="mi-card reveal" style="transition-delay:.08s">
+        <img src="images/aerea-entorno.jpg" alt="Vista aérea do DGN e entorno" loading="lazy">
+        <div class="mi-body">
+          <span class="tag">Para investir</span>
+          <p>O empreendimento está localizado ao lado do <strong>Goiás Center Modas</strong> e próximo à <strong>Região da 44</strong>, além de ter acesso facilitado à Marginal Botafogo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mi-cta reveal">
+      <!-- COPY: CTA -->
+      <a class="btn" href="#contato">Falar com o time comercial <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLANTAS ============ -->
+<section class="plantas" id="plantas">
+  <div class="wrap">
+    <div class="reveal">
+      <!-- COPY -->
+      <h2 style="max-width:800px">Escolha a planta de acordo com o <em style="color:var(--lime)">espaço</em> que você procura</h2>
+      <p class="lead" style="margin-top:22px">O DGN tem opções de 2 e 3 quartos, com metragens e configurações diferentes.</p>
+    </div>
+
+    <div class="pl-grid">
+      <!-- COPY: tipologias -->
+      <figure class="pl-card reveal lb-item" data-group="plantas" data-cap="2 quartos | 57 m²">
+        <span class="pl-img"><img src="images/planta-57.jpg" alt="Planta 2 quartos 57 m²" loading="lazy"></span>
+        <figcaption class="pl-info">
+          <div class="m2">2 quartos <span>| 57 m²</span></div>
+          <div class="cfg">2 quartos, sendo 1 suíte</div>
+          <p>Uma configuração para quem procura dois dormitórios sem abrir mão de uma suíte.</p>
+        </figcaption>
+      </figure>
+      <figure class="pl-card reveal lb-item" data-group="plantas" data-cap="2 quartos | 58 m²" style="transition-delay:.06s">
+        <span class="pl-img"><img src="images/planta-58.jpg" alt="Planta 2 quartos 58 m²" loading="lazy"></span>
+        <figcaption class="pl-info">
+          <div class="m2">2 quartos <span>| 58 m²</span></div>
+          <div class="cfg">2 quartos, sendo 1 suíte</div>
+          <p>Uma segunda opção de metragem para quem procura a mesma configuração de dormitórios.</p>
+        </figcaption>
+      </figure>
+      <figure class="pl-card reveal lb-item" data-group="plantas" data-cap="3 quartos | 68 m²">
+        <span class="pl-img"><img src="images/planta-68.jpg" alt="Planta 3 quartos 68 m²" loading="lazy"></span>
+        <figcaption class="pl-info">
+          <div class="m2">3 quartos <span>| 68 m²</span></div>
+          <div class="cfg">3 quartos, sendo 1 suíte</div>
+          <p>Um dormitório a mais para a família ou para quem precisa de um cômodo para outros usos.</p>
+        </figcaption>
+      </figure>
+      <figure class="pl-card reveal lb-item" data-group="plantas" data-cap="3 quartos | 78 m²" style="transition-delay:.06s">
+        <span class="pl-img"><img src="images/planta-78.jpg" alt="Planta 3 quartos 78 m²" loading="lazy"></span>
+        <figcaption class="pl-info">
+          <div class="m2">3 quartos <span>| 78 m²</span></div>
+          <div class="cfg">3 suítes, sendo duas americanas</div>
+          <p>A maior planta do DGN, com uma configuração que amplia a privacidade entre os dormitórios.</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- COPY: diferencial -->
+    <div class="dif-band reveal">
+      <div class="dif-txt">
+        <span class="kicker">Diferencial</span>
+        <p>Com churrasqueira a carvão em todos os apartamentos.</p>
+      </div>
+      <img src="images/churrasqueira.jpg" alt="Churrasqueira a carvão" loading="lazy">
+    </div>
+
+    <div class="btn-row reveal">
+      <!-- COPY: CTA -->
+      <a class="btn btn--lime" href="#contato">Consultar plantas disponíveis <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAZER ============ -->
+<section class="lazer">
+  <div class="wrap">
+    <div class="lazer-head">
+      <div class="reveal">
+        <!-- COPY -->
+        <h2>1.000 m² para aproveitar <em>além do apartamento</em></h2>
+      </div>
+      <!-- COPY -->
+      <p class="lead reveal">O espaço de recreação é um dos principais diferenciais do DGN para quem compra pensando na rotina da família.</p>
+    </div>
+
+    <div class="cat-grid">
+      <!-- COPY: categorias -->
+      <div class="cat reveal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20V10l8-6 8 6v10"/><path d="M12 4v4"/><path d="m5 12 7 5 7-5"/></svg>
+        <h3>Crianças</h3>
+        <p>Playbarco, espaço kids, piscina infantil e áreas de convivência.</p>
+      </div>
+      <div class="cat reveal" style="transition-delay:.06s">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg>
+        <h3>Atividade física</h3>
+        <p>Academia, fitness externo, quadra esportiva e pista de caminhada e corrida com 400 metros.</p>
+      </div>
+      <div class="cat reveal" style="transition-delay:.12s">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><circle cx="16" cy="5" r="3"/></svg>
+        <h3>Piscina, SPA e convivência</h3>
+        <p>Piscina adulta, SPA, salão de jogos e Acqua Grill.</p>
+      </div>
+      <div class="cat reveal" style="transition-delay:.18s">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>
+        <h3>Coworking e armário inteligente</h3>
+        <p>Estruturas que acrescentam praticidade para quem trabalha, recebe encomendas ou resolve parte da rotina dentro do próprio empreendimento.</p>
+      </div>
+    </div>
+
+    <div class="ed-gal">
+      <figure class="reveal lb-item" data-group="lazer" data-cap="Piscina adulta">
+        <img src="images/piscina-adulta.jpg" alt="Piscina adulta" loading="lazy">
+        <figcaption>Piscina adulta</figcaption>
+      </figure>
+      <figure class="reveal lb-item" data-group="lazer" data-cap="Playbarco">
+        <img src="images/playbarco.jpg" alt="Playbarco" loading="lazy">
+        <figcaption>Playbarco</figcaption>
+      </figure>
+      <figure class="reveal lb-item" data-group="lazer" data-cap="Academia">
+        <img src="images/academia.jpg" alt="Academia" loading="lazy">
+        <figcaption>Academia</figcaption>
+      </figure>
+      <figure class="reveal lb-item" data-group="lazer" data-cap="SPA">
+        <img src="images/spa.jpg" alt="SPA" loading="lazy">
+        <figcaption>SPA</figcaption>
+      </figure>
+    </div>
+
+    <div class="btn-row reveal">
+      <!-- COPY: CTA -->
+      <a class="btn" href="#contato">Quero conhecer o DGN <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCALIZAÇÃO ============ -->
+<section class="loc">
+  <div class="wrap">
+    <div class="reveal" style="max-width:780px">
+      <!-- COPY -->
+      <h2>Ao lado da <em>Região da 44</em> e conectado a diferentes partes de Goiânia</h2>
+      <p class="lead" style="margin-top:22px">O DGN está em uma região com comércio, serviços e acessos importantes para quem mora ou investe.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-map reveal">
+        <img src="images/mapa-regiao.png" alt="Mapa da região do DGN — Distrito Goiás Norte" loading="lazy">
+      </div>
+      <div class="loc-items reveal">
+        <!-- COPY: pontos -->
+        <div class="loc-item"><h3>Goiás Center Modas</h3><p>Ao lado do empreendimento.</p></div>
+        <div class="loc-item"><h3>Shopping Passeio das Águas</h3><p>A poucos minutos.</p></div>
+        <div class="loc-item"><h3>Praça Cívica</h3><p>Cerca de 12 minutos.</p></div>
+        <div class="loc-item"><h3>Marginal Botafogo</h3><p>Acesso para diferentes regiões de Goiânia.</p></div>
+        <div class="loc-item"><h3>Feira Hippie e Rodoviária</h3><p>Pontos de referência próximos ao empreendimento.</p></div>
+        <div class="loc-item"><h3>Av. Goiás e Av. Independência</h3><p>Conexão com vias importantes da região central.</p></div>
+      </div>
+    </div>
+    <div class="btn-row reveal">
+      <!-- COPY: CTA -->
+      <a class="btn" href="#contato">Falar com o time comercial <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="contato" id="contato">
+  <div class="wrap">
+    <div class="contato-grid">
+      <div class="contato-copy reveal">
+        <!-- COPY -->
+        <h2>Conheça o DGN <em>pronto</em> e consulte as unidades disponíveis</h2>
+        <p class="lead">Escolha entre apartamentos de 2 e 3 quartos e fale com o time comercial para conhecer as opções disponíveis no empreendimento.</p>
+        <!-- COPY -->
+        <h3 class="sol-title">Você pode solicitar</h3>
+        <ul class="sol-list">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Plantas e unidades disponíveis</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Informações sobre valores e condições comerciais</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Atendimento para morar ou investir</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Agendamento de visita ao empreendimento</li>
+        </ul>
+      </div>
+
+      <form class="form-card reveal" action="#" method="post">
+        <!-- COPY -->
+        <h3>Receba as informações do DGN</h3>
+        <p class="sub">Preencha seus dados. O time comercial entrará em contato para entender o que você procura e apresentar as opções disponíveis.</p>
+        <div class="field">
+          <!-- COPY: campo -->
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" required autocomplete="name">
+        </div>
+        <div class="field">
+          <!-- COPY: campo -->
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <!-- COPY: campo -->
+          <label for="tel">Telefone / WhatsApp</label>
+          <input type="tel" id="tel" name="telefone" required autocomplete="tel">
+        </div>
+        <div class="field">
+          <!-- COPY: campo -->
+          <label>Seu interesse é:</label>
+          <div class="choices">
+            <label class="chip"><input type="checkbox" name="interesse" value="Morar"><span>Morar</span></label>
+            <label class="chip"><input type="checkbox" name="interesse" value="Investir"><span>Investir</span></label>
+          </div>
+        </div>
+        <div class="lgpd">
+          <input type="checkbox" id="lgpd" name="lgpd" required>
+          <!-- COPY: consentimento -->
+          <label for="lgpd">Li e concordo com a Política de Proteção de Dados Pessoais</label>
+        </div>
+        <!-- COPY: CTA -->
+        <button class="btn" type="submit">Falar com o time comercial <span class="arr">→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <!-- COPY -->
+      <span class="foot-kicker">Um empreendimento</span>
+      <div class="foot-logos reveal">
+        <img src="images/marca-fr.png" alt="FR Incorporadora">
+        <span class="sep"></span>
+        <img src="images/logo-wa.svg" alt="WA Participações">
+      </div>
+      <div class="foot-base">
+        <!-- COPY -->
+        <small>Copyright 2026 FR Incorporadora | Todos os direitos reservados.</small>
+        <small>Desenvolvido por <b>3ADS</b></small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galeria de imagens">
+  <button class="lb-btn lb-close" id="lb-close" aria-label="Fechar">✕</button>
+  <button class="lb-btn lb-prev" id="lb-prev" aria-label="Anterior">←</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-cap"><span class="count" id="lb-count"></span><span id="lb-label"></span></div>
+  <button class="lb-btn lb-next" id="lb-next" aria-label="Próxima">→</button>
+</div>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Lightbox com grupos (plantas / lazer)
+  const groups = {};
+  document.querySelectorAll('.lb-item').forEach(f => {
+    const g = f.dataset.group;
+    (groups[g] = groups[g] || []).push({
+      src: f.querySelector('img').src,
+      alt: f.querySelector('img').alt,
+      cap: f.dataset.cap || ''
+    });
+    f.dataset.index = groups[g].length - 1;
+  });
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lb-img');
+  const lbLabel = document.getElementById('lb-label');
+  const lbCount = document.getElementById('lb-count');
+  let curGroup = null, cur = 0;
+  function show(i){
+    const items = groups[curGroup];
+    cur = (i + items.length) % items.length;
+    lbImg.src = items[cur].src;
+    lbImg.alt = items[cur].alt;
+    lbLabel.textContent = items[cur].cap;
+    lbCount.textContent = (cur + 1) + ' / ' + items.length;
+  }
+  function openLb(g, i){ curGroup = g; show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+  document.querySelectorAll('.lb-item').forEach(f => {
+    f.addEventListener('click', () => openLb(f.dataset.group, parseInt(f.dataset.index, 10)));
+  });
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  document.getElementById('lb-prev').addEventListener('click', (e) => { e.stopPropagation(); show(cur - 1); });
+  document.getElementById('lb-next').addEventListener('click', (e) => { e.stopPropagation(); show(cur + 1); });
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  let tx = null;
+  lb.addEventListener('touchstart', (e) => { tx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', (e) => {
+    if (tx === null) return;
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 48) show(cur + (dx < 0 ? 1 : -1));
+    tx = null;
+  }, {passive:true});
+</script>
+
+</body>
+</html>

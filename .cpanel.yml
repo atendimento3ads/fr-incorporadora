@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - /bin/mkdir -p /home2/hg3ads37/empreendimento.frincorporadora.com.br/fr-bueno-municipal
+    - /bin/cp fr-bueno-municipal/index.html /home2/hg3ads37/empreendimento.frincorporadora.com.br/fr-bueno-municipal/index.html
+    - /bin/cp -R fr-bueno-municipal/images /home2/hg3ads37/empreendimento.frincorporadora.com.br/fr-bueno-municipal/
+    - /bin/mkdir -p /home2/hg3ads37/empreendimento.frincorporadora.com.br/fr-dgn
+    - /bin/cp fr-dgn/index.html /home2/hg3ads37/empreendimento.frincorporadora.com.br/fr-dgn/index.html
+    - /bin/cp -R fr-dgn/images /home2/hg3ads37/empreendimento.frincorporadora.com.br/fr-dgn/
+    - /bin/mkdir -p /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina-praca-do-sol
+    - /bin/cp lina-praca-do-sol/index.html /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina-praca-do-sol/index.html
+    - /bin/cp -R lina-praca-do-sol/images /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina-praca-do-sol/
