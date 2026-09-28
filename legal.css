@@ -8,7 +8,7 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
 .site-header{border-bottom:1px solid var(--line);background:#fff}
 .site-header .wrap{min-height:88px;padding:16px 0;display:flex;align-items:flex-start;flex-direction:column;justify-content:space-between;gap:20px}
 .brand{display:inline-flex;align-items:center}
-.brand img{display:block;width:140px;max-width:40vw;height:auto}
+.brand img{display:block;width:140px;max-width:40vw;height:auto;filter:brightness(0)}
 .site-header nav{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px}
 .site-header nav a{text-decoration:none}
 main{padding:42px 0 58px}
