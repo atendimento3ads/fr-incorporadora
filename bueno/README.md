@@ -18,7 +18,8 @@ Galeria oficial do empreendimento no site da FR Incorporadora (<https://frincorp
 | `hero-aerea.jpg` | fornecida pela 3ADS (foto aérea real do empreendimento concluído) |
 | `fachada-aerea.jpg` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/FACHADA-1-scaled.jpg> |
 | `fachada-podio.jpg` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/FACHADA-2-scaled.jpg> |
-| `fachada-torre.jpg` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/FACHADA-3-scaled.jpg> |
+| `fachada-aerea-rooftop.jpg` | fornecida pela 3ADS (foto aérea real do empreendimento concluído, seção 01) |
+| `rooftop-piscina-aerea.jpg` | fornecida pela 3ADS (foto aérea real da piscina do rooftop, seção 06) |
 | `academia.jpg` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/FITNESS-scaled.jpg> |
 | `brinquedoteca.jpg` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/BRINQUEDOTECA-scaled.jpg> |
 | `coworking.jpg` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/COWORKING-scaled.jpg> |
