@@ -14,6 +14,13 @@ document.querySelectorAll('form.form-card').forEach((form) => {
     payload.set('interesse', fields.getAll('interesse').join(', '));
     payload.set('lgpd', fields.get('lgpd') === 'sim' ? 'sim' : 'nao');
 
+    // Origem da visita: URL completa e cada UTM em um campo próprio (vazio se ausente).
+    const pageParams = new URLSearchParams(location.search);
+    payload.set('url', location.href);
+    for (const name of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']) {
+      payload.set(name, pageParams.get(name) || '');
+    }
+
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     submitButton.disabled = true;
