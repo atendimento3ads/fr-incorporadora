@@ -32,5 +32,5 @@ Galeria oficial do empreendimento no site da FR Incorporadora (<https://frincorp
 | `squash.jpg` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/QUADRA-DE-SQUASH-scaled.jpg> |
 | `varanda-jogos.jpg` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/JOGOS-scaled.jpg> |
 | `logo-bueno-municipal.png` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/Logo-Bueno-Municipal-12.png> |
-| `orion-complex.png` | LP oficial (<https://empreendimentos.frincorporadora.com.br/buenomunicipal>) — <https://pages.greatpages.com.br/empreendimentos.frincorporadora.com.br-buenomunicipal/1784165425/imagens/desktop/2332417_1_174542833368091f6e00ad9067094159.png> |
+| `vista-aerea-entorno.jpg` | fornecida pela 3ADS (foto aérea real do empreendimento e do entorno, seção 02) |
 | `marca-fr.png` | fornecido pela 3ADS (marca oficial FR) |
