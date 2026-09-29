@@ -1,6 +1,7 @@
 /* Consentimento básico: o contêiner só é baixado depois do aceite explícito. */
 (() => {
   const CONTAINER_ID = 'GTM-KP6BMDSS';
+  const CLARITY_ID = 'ypvkeny2jq';
   const CONSENT_KEY = 'fr_gtm_consent_v1';
   const LEAD_KEY = 'fr_lead_success_v1';
   const MAX_CONSENT_AGE = 180 * 24 * 60 * 60 * 1000;
@@ -66,6 +67,17 @@
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtm.js?id=${CONTAINER_ID}`;
     document.head.appendChild(script);
+    loadClarity();
+  }
+
+  // Clarity só nas três LPs; carregado como arquivo externo para respeitar a CSP.
+  function loadClarity() {
+    if (!allowedSlugs.has(location.pathname.split('/')[1])) return;
+    window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.clarity.ms/tag/${CLARITY_ID}`;
+    document.head.appendChild(script);
   }
 
   if (choice === 'accepted') loadContainer();
@@ -77,7 +89,7 @@
     panel.innerHTML = `
       <div class="fr-consent__copy">
         <strong>Medição e publicidade</strong>
-        <p>Com sua autorização, carregamos o Google Tag Manager para medir visitas e resultados das campanhas. O contêiner inclui serviços de análise e publicidade. Você pode mudar sua escolha a qualquer momento. <a href="../politica-de-cookies/">Veja a política de cookies</a>.</p>
+        <p>Com sua autorização, carregamos o Google Tag Manager e o Microsoft Clarity para medir visitas, navegação e resultados das campanhas. O contêiner inclui serviços de análise e publicidade. Você pode mudar sua escolha a qualquer momento. <a href="../politica-de-cookies/">Veja a política de cookies</a>.</p>
       </div>
       <div class="fr-consent__actions">
         <button type="button" data-consent="rejected">Rejeitar opcionais</button>

@@ -20,7 +20,7 @@ O contêiner `GTM-KP6BMDSS` é carregado nas nove páginas apenas após o aceite
 
 Após resposta HTTP positiva do webhook da Make, o formulário grava na sessão um marcador sem dados pessoais e abre a página de obrigado. Essa página consome o marcador uma só vez e emite `dataLayer.push({event: 'formSubmit', empreendimento: 'bueno' | 'dgn' | 'lina', origem: 'lp_fr'})`. Visita direta, recarga ou URL compartilhada não emite o evento. O contêiner publicado em 28/09/2026 já tem tags de conversão acionadas por `formSubmit`; a medição real ainda depende do estado dessas tags, do consentimento, da CSP e do recebimento no destino. Configure conversões pelo evento, não por mera visualização da URL de obrigado.
 
-O contêiner também tem tags de HTML personalizado (incluindo Clarity). A CSP restritiva pode bloquear essas tags; migre-as para modelos compatíveis com CSP, sem liberar `unsafe-inline`. Revise as origens da CSP quando o contêiner for alterado.
+O Microsoft Clarity (`ypvkeny2jq`) é carregado pelo `gtm-consent.js` com o mesmo aceite do GTM, somente em `/bueno/`, `/dgn/` e `/lina/`; a CSP libera `*.clarity.ms` e `c.bing.com`. O contêiner também tem tags de HTML personalizado (incluindo uma tag de Clarity, que deve ser pausada para não duplicar a medição). A CSP restritiva pode bloquear essas tags; migre-as para modelos compatíveis com CSP, sem liberar `unsafe-inline`. Revise as origens da CSP quando o contêiner for alterado.
 
 ## Publicação no cPanel
 
