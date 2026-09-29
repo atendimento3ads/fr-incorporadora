@@ -1,12 +1,16 @@
 /* Consentimento básico: o contêiner só é baixado depois do aceite explícito. */
 (() => {
   const CONTAINER_ID = 'GTM-KP6BMDSS';
+  // Contêiner próprio de cada empreendimento, carregado na LP e na página de obrigado.
+  const LP_CONTAINER_IDS = { bueno: 'GTM-567FGJ8X', dgn: 'GTM-N8XMH8WZ', lina: 'GTM-TFTCTCLB' };
   const CLARITY_ID = 'ypvkeny2jq';
   const CONSENT_KEY = 'fr_gtm_consent_v1';
   const LEAD_KEY = 'fr_lead_success_v1';
   const MAX_CONSENT_AGE = 180 * 24 * 60 * 60 * 1000;
   const MAX_LEAD_AGE = 10 * 60 * 1000;
   const allowedSlugs = new Set(['bueno', 'dgn', 'lina']);
+  const pageSegment = location.pathname.split('/')[1];
+  const pageSlug = pageSegment.replace(/-obrigado$/, '');
   window.dataLayer = window.dataLayer || [];
 
   function readConsent() {
@@ -63,21 +67,25 @@
     queueConsent('default', true);
     window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
     if (pendingLead) window.dataLayer.push(pendingLead);
+    appendScript(`https://www.googletagmanager.com/gtm.js?id=${CONTAINER_ID}`);
+    if (allowedSlugs.has(pageSlug)) {
+      appendScript(`https://www.googletagmanager.com/gtm.js?id=${LP_CONTAINER_IDS[pageSlug]}`);
+    }
+    loadClarity();
+  }
+
+  function appendScript(src) {
     const script = document.createElement('script');
     script.async = true;
-    script.src = `https://www.googletagmanager.com/gtm.js?id=${CONTAINER_ID}`;
+    script.src = src;
     document.head.appendChild(script);
-    loadClarity();
   }
 
   // Clarity só nas três LPs; carregado como arquivo externo para respeitar a CSP.
   function loadClarity() {
-    if (!allowedSlugs.has(location.pathname.split('/')[1])) return;
+    if (!allowedSlugs.has(pageSegment)) return;
     window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.clarity.ms/tag/${CLARITY_ID}`;
-    document.head.appendChild(script);
+    appendScript(`https://www.clarity.ms/tag/${CLARITY_ID}`);
   }
 
   if (choice === 'accepted') loadContainer();

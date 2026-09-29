@@ -16,7 +16,7 @@ Os cabeçalhos de segurança têm uma única fonte em `security-headers.htaccess
 
 ## GTM e conversão
 
-O contêiner `GTM-KP6BMDSS` é carregado nas nove páginas apenas após o aceite conjunto de medição e publicidade. A escolha fica no armazenamento local por até 180 dias e pode ser alterada pelo link no rodapé. Sem aceite, o GTM não é baixado. O snippet `noscript` foi omitido porque não há mecanismo de consentimento sem JavaScript.
+O contêiner `GTM-KP6BMDSS` é carregado nas nove páginas apenas após o aceite conjunto de medição e publicidade. Com o mesmo aceite, cada empreendimento carrega também o próprio contêiner na LP e na página de obrigado: `GTM-567FGJ8X` (Bueno), `GTM-N8XMH8WZ` (DGN) e `GTM-TFTCTCLB` (Lina). Os contêineres compartilham o mesmo `dataLayer`, então o `formSubmit` chega a ambos. A escolha fica no armazenamento local por até 180 dias e pode ser alterada pelo link no rodapé. Sem aceite, o GTM não é baixado. O snippet `noscript` foi omitido porque não há mecanismo de consentimento sem JavaScript.
 
 Após resposta HTTP positiva do webhook da Make, o formulário grava na sessão um marcador sem dados pessoais e abre a página de obrigado. Essa página consome o marcador uma só vez e emite `dataLayer.push({event: 'formSubmit', empreendimento: 'bueno' | 'dgn' | 'lina', origem: 'lp_fr'})`. Visita direta, recarga ou URL compartilhada não emite o evento. O contêiner publicado em 28/09/2026 já tem tags de conversão acionadas por `formSubmit`; a medição real ainda depende do estado dessas tags, do consentimento, da CSP e do recebimento no destino. Configure conversões pelo evento, não por mera visualização da URL de obrigado.
 
