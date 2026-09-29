@@ -1,7 +1,7 @@
 /* Consentimento básico: o contêiner só é baixado depois do aceite explícito. */
 (() => {
-  const CONTAINER_ID = 'GTM-KP6BMDSS';
-  // Contêiner próprio de cada empreendimento, carregado na LP e na página de obrigado.
+  // Cada empreendimento carrega apenas o próprio contêiner, na LP e na página de obrigado.
+  // As páginas legais não carregam GTM.
   const LP_CONTAINER_IDS = { bueno: 'GTM-567FGJ8X', dgn: 'GTM-N8XMH8WZ', lina: 'GTM-TFTCTCLB' };
   const CLARITY_ID = 'ypvkeny2jq';
   const CONSENT_KEY = 'fr_gtm_consent_v1';
@@ -61,16 +61,13 @@
   let choice = readConsent();
 
   function loadContainer() {
-    if (containerLoaded) return;
+    if (containerLoaded || !allowedSlugs.has(pageSlug)) return;
     containerLoaded = true;
     // Antes do gtm.js: estado concedido e evento de inicialização.
     queueConsent('default', true);
     window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
     if (pendingLead) window.dataLayer.push(pendingLead);
-    appendScript(`https://www.googletagmanager.com/gtm.js?id=${CONTAINER_ID}`);
-    if (allowedSlugs.has(pageSlug)) {
-      appendScript(`https://www.googletagmanager.com/gtm.js?id=${LP_CONTAINER_IDS[pageSlug]}`);
-    }
+    appendScript(`https://www.googletagmanager.com/gtm.js?id=${LP_CONTAINER_IDS[pageSlug]}`);
     loadClarity();
   }
 
