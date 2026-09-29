@@ -32,5 +32,5 @@ Galeria oficial do empreendimento no site da FR Incorporadora (<https://frincorp
 | `squash.jpg` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/QUADRA-DE-SQUASH-scaled.jpg> |
 | `varanda-jogos.jpg` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/JOGOS-scaled.jpg> |
 | `logo-bueno-municipal.png` | <https://frincorporadora.com.br/wp-content/uploads/2023/07/Logo-Bueno-Municipal-12.png> |
-| `vista-aerea-entorno.jpg` | fornecida pela 3ADS (foto aérea real do empreendimento e do entorno, seção 02) |
+| `vista-aerea-orion.jpg` | fornecida pela 3ADS (foto aérea real do empreendimento com o Órion Complex ao fundo, recorte vertical, seção 02) |
 | `marca-fr.png` | fornecido pela 3ADS (marca oficial FR) |
