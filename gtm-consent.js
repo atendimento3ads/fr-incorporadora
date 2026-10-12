@@ -1,4 +1,5 @@
-/* Consentimento básico: o contêiner só é baixado depois do aceite explícito. */
+/* O contêiner do empreendimento carrega em toda visita e recebe a escolha do visitante
+   pelo Consent Mode (negado até o aceite). O Clarity só carrega depois do aceite. */
 (() => {
   // Cada empreendimento carrega apenas o próprio contêiner, na LP e na página de obrigado.
   // As páginas legais não carregam GTM.
@@ -58,17 +59,17 @@
 
   const pendingLead = readConfirmedLead();
   let containerLoaded = false;
+  let clarityLoaded = false;
   let choice = readConsent();
 
   function loadContainer() {
     if (containerLoaded || !allowedSlugs.has(pageSlug)) return;
     containerLoaded = true;
-    // Antes do gtm.js: estado concedido e evento de inicialização.
-    queueConsent('default', true);
+    // Antes do gtm.js: estado de consentimento e evento de inicialização.
+    queueConsent('default', choice === 'accepted');
     window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
     if (pendingLead) window.dataLayer.push(pendingLead);
     appendScript(`https://www.googletagmanager.com/gtm.js?id=${LP_CONTAINER_IDS[pageSlug]}`);
-    loadClarity();
   }
 
   function appendScript(src) {
@@ -80,12 +81,14 @@
 
   // Clarity só nas três LPs; carregado como arquivo externo para respeitar a CSP.
   function loadClarity() {
-    if (!allowedSlugs.has(pageSegment)) return;
+    if (clarityLoaded || !allowedSlugs.has(pageSegment)) return;
+    clarityLoaded = true;
     window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
     appendScript(`https://www.clarity.ms/tag/${CLARITY_ID}`);
   }
 
-  if (choice === 'accepted') loadContainer();
+  loadContainer();
+  if (choice === 'accepted') loadClarity();
 
   function renderBanner() {
     const panel = document.createElement('section');
@@ -94,7 +97,7 @@
     panel.innerHTML = `
       <div class="fr-consent__copy">
         <strong>Medição e publicidade</strong>
-        <p>Com sua autorização, carregamos o Google Tag Manager e o Microsoft Clarity para medir visitas, navegação e resultados das campanhas. O contêiner inclui serviços de análise e publicidade. Você pode mudar sua escolha a qualquer momento. <a href="../politica-de-cookies/">Veja a política de cookies</a>.</p>
+        <p>Estas páginas carregam o Google Tag Manager. Com sua autorização, as ferramentas de análise e publicidade e o Microsoft Clarity usam cookies para medir visitas, navegação e resultados das campanhas. Você pode mudar sua escolha a qualquer momento. <a href="../politica-de-cookies/">Veja a política de cookies</a>.</p>
       </div>
       <div class="fr-consent__actions">
         <button type="button" data-consent="rejected">Rejeitar opcionais</button>
@@ -104,16 +107,15 @@
     panel.querySelectorAll('[data-consent]').forEach((button) => {
       button.addEventListener('click', () => {
         const next = button.dataset.consent;
+        const previous = choice;
         saveConsent(next);
         choice = next;
         panel.hidden = true;
-        if (containerLoaded) {
-          // Revogar consentimento exige descarregar as tags já executadas.
-          queueConsent('update', next === 'accepted');
-          if (next === 'rejected') location.reload();
-        } else if (next === 'accepted') {
-          loadContainer();
-        }
+        const revoked = previous === 'accepted' && next === 'rejected';
+        if (containerLoaded) queueConsent('update', next === 'accepted');
+        if (next === 'accepted') loadClarity();
+        // Revogar consentimento exige descarregar as tags já executadas.
+        if (revoked) location.reload();
       });
     });
     document.querySelectorAll('[data-cookie-settings]').forEach((button) => {
