@@ -11,21 +11,21 @@ deployment:
     - /bin/cp bueno/index.html /home2/hg3ads37/empreendimento.frincorporadora.com.br/bueno/index.html
     - /bin/cp bueno/style.css /home2/hg3ads37/empreendimento.frincorporadora.com.br/bueno/style.css
     - /bin/cp bueno/page.js /home2/hg3ads37/empreendimento.frincorporadora.com.br/bueno/page.js
-    - /bin/cp security-headers.htaccess /home2/hg3ads37/empreendimento.frincorporadora.com.br/bueno/.htaccess
+    - /bin/cp deactivated-lp.htaccess /home2/hg3ads37/empreendimento.frincorporadora.com.br/bueno/.htaccess
     - /bin/cp bueno/favicon.svg /home2/hg3ads37/empreendimento.frincorporadora.com.br/bueno/favicon.svg
     - /bin/cp -R bueno/images /home2/hg3ads37/empreendimento.frincorporadora.com.br/bueno/
     - /bin/mkdir -p /home2/hg3ads37/empreendimento.frincorporadora.com.br/dgn
     - /bin/cp dgn/index.html /home2/hg3ads37/empreendimento.frincorporadora.com.br/dgn/index.html
     - /bin/cp dgn/style.css /home2/hg3ads37/empreendimento.frincorporadora.com.br/dgn/style.css
     - /bin/cp dgn/page.js /home2/hg3ads37/empreendimento.frincorporadora.com.br/dgn/page.js
-    - /bin/cp security-headers.htaccess /home2/hg3ads37/empreendimento.frincorporadora.com.br/dgn/.htaccess
+    - /bin/cp deactivated-lp.htaccess /home2/hg3ads37/empreendimento.frincorporadora.com.br/dgn/.htaccess
     - /bin/cp dgn/favicon.svg /home2/hg3ads37/empreendimento.frincorporadora.com.br/dgn/favicon.svg
     - /bin/cp -R dgn/images /home2/hg3ads37/empreendimento.frincorporadora.com.br/dgn/
     - /bin/mkdir -p /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina
     - /bin/cp lina/index.html /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina/index.html
     - /bin/cp lina/style.css /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina/style.css
     - /bin/cp lina/page.js /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina/page.js
-    - /bin/cp security-headers.htaccess /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina/.htaccess
+    - /bin/cp deactivated-lp.htaccess /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina/.htaccess
     - /bin/cp lina/favicon.svg /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina/favicon.svg
     - /bin/cp -R lina/images /home2/hg3ads37/empreendimento.frincorporadora.com.br/lina/
     - /bin/mkdir -p /home2/hg3ads37/empreendimento.frincorporadora.com.br/bueno-obrigado
